@@ -1,6 +1,6 @@
 #criar uma classe.
 class Pessoa:   #o nome sempre com a 1 letra maiuscula, ex: ExemploPessoa.
-    # para criar atributos de um metodo, é usado um metodo especial, jaá pode criar um atributo e definir o valor nulo.
+    # para criar atributos de um metodo, é usado um metodo especial, já pode criar um atributo e definir o valor nulo.
     def __init__(self, *filhos, nome=None, idade=35):  #*filhos atributo variavel
         self.idade = idade
         self.nome = nome   #para criar um atributo de um objeto utiliza self.atributo = None ou seja nulo
@@ -18,4 +18,9 @@ if __name__ == '__main__':
     print(luciano.idade)
     for filho in luciano.filhos:
         print(filho.nome)
+    luciano.sobrenome = 'Ramalho' #posso criar uma variavel a qualquer momento.porem sera só para o objeto que escolhi
+    del luciano.filhos #remove o atributo que inclusive foi criado no init
+    #__dict__ atributo pra conferir todos os atributos de uma instancia
+    print(luciano.__dict__) # tem os atributos da classe + o dinamico criado
+    print(alex.__dict__) # tem só os atributos da classe
 
