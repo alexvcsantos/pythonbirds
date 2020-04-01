@@ -92,6 +92,23 @@ Exemplo:
     >>> carro.calcular_direcao()
     'Oeste'
     """
+NORTE = 'Norte'  #sempre for uma varivel tudo maisculo não alterar os dados
+SUL = 'Sul'      #por ser variaveis com valor fixo é criado antes da classe
+LESTE = 'Leste'
+OESTE = 'Oeste'
+
+class Direcao:
+    rotacao_a_direita_dct = {NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE}
+    rotacao_a_esquerda_dct = {NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL}
+    def __init__(self): #como vai mudar o atributo, ele é uma instancia dander init
+        self.valor = NORTE
+        
+    def girar_a_direita(self): #quando tiver um if muito grande, possivelmente pode substituir por um dicionario
+        self.valor = self.rotacao_a_direita_dct[self.valor] #declarado a variavel no começo da classe
+
+    def girar_a_esquerda(self): #quando tiver um if muito grande, possivelmente pode substituir por um dicionario
+        self.valor = self.rotacao_a_esquerda_dct[self.valor] #declarado a variavel no começo da classe
+
 class Motor:
     def __init__(self):
         self.velocidade = 0
