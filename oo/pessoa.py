@@ -9,6 +9,15 @@ class Pessoa:   #o nome sempre com a 1 letra maiuscula, ex: ExemploPessoa.
     def cumprimentar(self): #metodo é uma funcão da classe
         return f'olá {id(self)}'
 
+    # metodo de classe decorator
+    @staticmethod
+    def metodo_estatico():
+        return 42
+    # metodo utilizado quando quer acessar dados da propria classe
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
+
 if __name__ == '__main__':
     alex = Pessoa(nome='Alex')
     luciano = Pessoa(alex, nome='Luciano')
@@ -27,3 +36,5 @@ if __name__ == '__main__':
     print(Pessoa.olhos)
     print(luciano.olhos)
     print(alex.olhos)
+    print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), luciano.nome_e_atributos_de_classe())
