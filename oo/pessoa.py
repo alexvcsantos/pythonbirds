@@ -18,9 +18,15 @@ class Pessoa:   #o nome sempre com a 1 letra maiuscula, ex: ExemploPessoa.
     def nome_e_atributos_de_classe(cls):
         return f'{cls} - olhos {cls.olhos}'
 
+class Homem(Pessoa): #herança de classe, classe homem erda atributos da classe Pessoa
+    pass
+
+class Mutante(Pessoa):
+    olhos = 3
+
 if __name__ == '__main__':
-    alex = Pessoa(nome='Alex')
-    luciano = Pessoa(alex, nome='Luciano')
+    alex = Mutante(nome='Alex')
+    luciano = Homem(alex, nome='Luciano')
     print(Pessoa.cumprimentar(luciano))
     print(id(luciano))
     print(luciano.cumprimentar()) # todos os 3 metodos do print imprimo o mesmo metodo
@@ -38,3 +44,9 @@ if __name__ == '__main__':
     print(alex.olhos)
     print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
     print(Pessoa.nome_e_atributos_de_classe(), luciano.nome_e_atributos_de_classe())
+    pessoa = Pessoa('anonimo')
+    print(isinstance(pessoa, Pessoa)) #isinstance verifica se o objeto é o instancia da classe
+    print(isinstance(pessoa, Homem))  #a variavel é da classe pessoa, mas não da classe Homem
+    print(isinstance(alex, Pessoa))  # isinstance verifica se o objeto é o instancia da classe
+    print(isinstance(alex, Homem))  # a variavel é da classe Homem, e tb da classe Pessoa por herança
+    print(alex.olhos)
