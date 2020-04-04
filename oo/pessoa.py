@@ -7,7 +7,7 @@ class Pessoa:   #o nome sempre com a 1 letra maiuscula, ex: ExemploPessoa.
         self.nome = nome   #para criar um atributo de um objeto utiliza self.atributo = None ou seja nulo
         self.filhos = list(filhos)
     def cumprimentar(self): #metodo é uma funcão da classe
-        return f'olá {id(self)}'
+        return f'Olá, meu nome é {self.nome}'
 
     # metodo de classe decorator
     @staticmethod
@@ -19,7 +19,10 @@ class Pessoa:   #o nome sempre com a 1 letra maiuscula, ex: ExemploPessoa.
         return f'{cls} - olhos {cls.olhos}'
 
 class Homem(Pessoa): #herança de classe, classe homem erda atributos da classe Pessoa
-    pass
+    def cumprimentar(self):
+        cumprimentar_da_classe=super().cumprimentar() #criado uma varivel para armazenar o valor inicial, antes de acrescentar
+        #usando super() mesmo que mude a herança de classe no inicio a função vai pegar a classe pai
+        return f'{cumprimentar_da_classe}. Aperto de mão'
 
 class Mutante(Pessoa):
     olhos = 3
@@ -50,3 +53,5 @@ if __name__ == '__main__':
     print(isinstance(alex, Pessoa))  # isinstance verifica se o objeto é o instancia da classe
     print(isinstance(alex, Homem))  # a variavel é da classe Homem, e tb da classe Pessoa por herança
     print(alex.olhos)
+    print(luciano.cumprimentar())
+    print(alex.cumprimentar())
