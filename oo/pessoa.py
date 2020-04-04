@@ -25,7 +25,7 @@ class Homem(Pessoa): #herança de classe, classe homem erda atributos da classe 
         return f'{cumprimentar_da_classe}. Aperto de mão'
 
 class Mutante(Pessoa):
-    olhos = 3
+    olhos = 3print(luciano.cumprimentar())
 
 if __name__ == '__main__':
     alex = Mutante(nome='Alex')
